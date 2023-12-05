@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Globalization;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 namespace ArraysAndLists
 {
@@ -6,39 +11,33 @@ namespace ArraysAndLists
     {
         static void Main(string[] args)
         {
-            //TODO:
+            var numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            // Create an int array and populate it with numbers 1-10
-            
+            var evens = new List<int>();
 
-            /* Create a list of type int
-             * Name the list "evens"
-             */
+            var odds = new List<int>();
 
-            
-            /* Create another list of type int
-             * Name the list "odds"
-             */
-            
+            foreach (var num in numbers)
+            {
+                if (num % 2 == 0)
+                {
+                    evens.Add(num);
+                }
+                else
+                {
+                    odds.Add(num);
+                }
+            }
 
-             /* Using either a foreach or for loop,
-             * iterate through the array you populated with 10 numbers.
-             * Inside the scope of the loop,
-             * check to see if each number in the array is even or odd.
-             * If the number is even, add it to the evens list.
-             * If the number is odd, add it to the odds list.
-             */
+            foreach (var evenNumber in evens) 
+            {
+                Console.WriteLine($"{evenNumber} is truly an even number.");
+            }
 
-
-
-            /* Using a foreach loop,
-             * display the numbers in your "evens" list
-             */
-            
-
-            /* Using a for loop,
-             * display the numbers in your "odds" list
-             */
+            foreach(var oddNumber in odds)
+            {
+                Console.WriteLine($"This {oddNumber} is an odd number for sure.");
+            }
         }
     }
 }
